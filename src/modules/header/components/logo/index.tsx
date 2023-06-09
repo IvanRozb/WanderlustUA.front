@@ -1,8 +1,13 @@
 import {Box} from "@mui/system";
 import {Typography} from "@mui/material";
+import Link from "next/link";
 
 export default function Logo(){
     return <Box>
-        <Typography variant={"h2"}>WanderlustUA</Typography>
+        <Link href={"/"}>
+            <Typography variant={"h2"}>
+                WanderlustUA
+            </Typography>
+        </Link>
     </Box>
 }
