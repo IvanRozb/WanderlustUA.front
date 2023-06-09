@@ -2,7 +2,6 @@ import Link from "next/link";
 import {Tab, Tabs} from "@mui/material";
 import {SyntheticEvent, useState} from "react";
 import {makeStyles} from "@mui/styles";
-import theme from "@/helpers/theme";
 
 const useStyles = makeStyles({
     tabs: {

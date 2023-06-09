@@ -1,7 +1,7 @@
 import {AppBar, Container, Toolbar} from "@mui/material";
 import Logo from "@/modules/header/components/logo";
 import NavTabs from "@/modules/header/components/navTabs";
-import Login from "src/modules/header/components/login";
+import SignIn from "src/modules/header/components/sign-in";
 
 export default function Header() {
     return (
@@ -10,7 +10,7 @@ export default function Header() {
                 <Toolbar disableGutters>
                     <Logo />
                     <NavTabs/>
-                    <Login/>
+                    <SignIn/>
                 </Toolbar>
             </Container>
         </AppBar>

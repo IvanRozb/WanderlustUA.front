@@ -1,10 +1,10 @@
 import Link from "next/link";
 import {Button, Typography} from "@mui/material";
 
-export default function Login(){
+export default function SignIn(){
     return <Button variant="contained" color={"secondary"}>
-        <Link href={"/login"}>
-            <Typography variant={"h4"} sx={{cursor: "pointer"}}>Log in</Typography>
+        <Link href={"/sign-in"}>
+            <Typography variant={"h4"} sx={{cursor: "pointer"}}>Sign In</Typography>
         </Link>
     </Button>
 }
