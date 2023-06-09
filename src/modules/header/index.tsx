@@ -3,12 +3,11 @@ import Logo from "@/modules/header/components/logo";
 import NavTabs from "@/modules/header/components/navTabs";
 import Login from "src/modules/header/components/login";
 
-
 export default function Header() {
     return (
         <AppBar position={"static"}>
             <Container maxWidth={"xl"}>
-                <Toolbar disableGutters sx={{display: "flex"}}>
+                <Toolbar disableGutters>
                     <Logo />
                     <NavTabs/>
                     <Login/>

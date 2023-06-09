@@ -1,7 +1,5 @@
-import Header from "@/modules/header";
-
-export default function Home() {
+export default function TripsPage() {
     return (
-        <Header></Header>
+       <></>
     )
 }
