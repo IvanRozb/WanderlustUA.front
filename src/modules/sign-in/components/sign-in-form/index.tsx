@@ -5,9 +5,12 @@ import SignInTextField from "@/modules/sign-in/components/sign-in-form/ui/text-f
 import ErrorText from "@/modules/sign-in/components/sign-in-form/ui/error-text";
 import SignInButton from "@/modules/sign-in/components/sign-in-form/ui/sign-in-button";
 import Footer from "@/modules/sign-in/components/sign-in-form/footer";
+import {router} from "next/client";
+import {useRouter} from "next/router";
 
 export default function SignInForm(){
     const [cookies, setCookie, removeCookie] = useTokenCookies();
+    const router = useRouter();
     const handleSubmit = async (event:FormEvent<HTMLFormElement>) => {
         event.preventDefault();
 
@@ -37,6 +40,8 @@ export default function SignInForm(){
             sameSite: "none",
             secure: true
         })
+
+        await router.push("/");
     };
 
     const [error, setError] = useState<string>();
