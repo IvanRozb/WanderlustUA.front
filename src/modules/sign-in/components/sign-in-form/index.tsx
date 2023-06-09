@@ -30,6 +30,8 @@ export default function SignInForm(){
             return;
         }
 
+        setError(undefined);
+
         setCookie('token', res.token, {
             path: "/",
             sameSite: "none",
