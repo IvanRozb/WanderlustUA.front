@@ -26,7 +26,6 @@ const useStyles = makeStyles({
 
 export default function NavTabs() {
     const token = useToken();
-
     const classes = useStyles()
     const [value, setValue] = useState(0);
     const handleChange = (event: SyntheticEvent, newValue: number) => {
@@ -36,6 +35,6 @@ export default function NavTabs() {
         <Tab label={<Link href={"/"}><div className={classes.tabLink}>Home</div></Link>} value={0} className={classes.tab}/>
         <Tab label={<Link href={"/tourist-places"}><div className={classes.tabLink}>Tourist Places</div></Link>} value={1} className={classes.tab}/>
         {token && <Tab label={<Link href={"/trips"}><div className={classes.tabLink}>Trips</div></Link>} value={2} className={classes.tab}/>}
-        {token && <Tab label={<Link href={"/users"}><div className={classes.tabLink}>Users</div></Link>} value={3} className={classes.tab}/>}
+        {token && token.role === "Admin" && <Tab label={<Link href={"/users"}><div className={classes.tabLink}>Users</div></Link>} value={3} className={classes.tab}/>}
     </Tabs>
 }
