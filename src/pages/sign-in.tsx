@@ -10,6 +10,7 @@ import Container from "@mui/material/Container";
 import React, {useState} from "react";
 import {styled} from "@mui/styles";
 import theme from "@/helpers/theme";
+import {useCookies} from "react-cookie";
 
 
 const CssTextField = styled(TextField)({
@@ -33,8 +34,11 @@ const CssTextField = styled(TextField)({
 });
 
 export default function SignIn() {
+
+    const [cookies, setCookie, removeCookie] = useCookies(['token']);
     const handleSubmit = async (event:React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
+
         const dataForm = new FormData(event.currentTarget);
         const data = {
             email: dataForm.get("email"),
@@ -47,16 +51,16 @@ export default function SignIn() {
                 "Content-Type": "application/json",
             },
             body: JSON.stringify(data)
+        }).then(data => data.json())
+
+        if(res.error){
+            setError(res.error);
+            return;
+        }
+        setCookie('token', res.token, {
+            path: "/",
+            sameSite: "none"
         })
-
-        console.log(res, res.status === 404)
-
-        if(res.status === 404){
-            setError("There is no user with this email");
-        }
-        else if(res.status === 401){
-            setError("Email or password is incorrect!");
-        }
     };
 
     const [error, setError] = useState<string>();
