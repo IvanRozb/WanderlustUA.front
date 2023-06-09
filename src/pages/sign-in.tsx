@@ -42,14 +42,6 @@ export default function SignIn() {
         });
     };
 
-    const [showPassword, setShowPassword] = React.useState(false);
-
-    const handleClickShowPassword = () => setShowPassword((show) => !show);
-
-    const handleMouseDownPassword = (event: React.MouseEvent<HTMLButtonElement>) => {
-        event.preventDefault();
-    };
-
     return (
         <Container component="main" maxWidth="xs">
             <Box
