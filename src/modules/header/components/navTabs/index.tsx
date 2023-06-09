@@ -2,6 +2,7 @@ import Link from "next/link";
 import {Tab, Tabs} from "@mui/material";
 import {SyntheticEvent, useState} from "react";
 import {makeStyles} from "@mui/styles";
+import useToken from "@/hooks/useToken";
 
 const useStyles = makeStyles({
     tabs: {
@@ -24,6 +25,8 @@ const useStyles = makeStyles({
 })
 
 export default function NavTabs() {
+    const token = useToken();
+
     const classes = useStyles()
     const [value, setValue] = useState(0);
     const handleChange = (event: SyntheticEvent, newValue: number) => {
@@ -32,6 +35,6 @@ export default function NavTabs() {
     return <Tabs variant={"fullWidth"} value={value} onChange={handleChange} className={classes.tabs}>
         <Tab label={<Link href={"/"}><div className={classes.tabLink}>Home</div></Link>} value={0} className={classes.tab}/>
         <Tab label={<Link href={"/tourist-places"}><div className={classes.tabLink}>Tourist Places</div></Link>} value={1} className={classes.tab}/>
-        <Tab label={<Link href={"/trips"}><div className={classes.tabLink}>Trips</div></Link>} value={2} className={classes.tab}/>
+        {token && <Tab label={<Link href={"/trips"}><div className={classes.tabLink}>Trips</div></Link>} value={2} className={classes.tab}/>}
     </Tabs>
 }
