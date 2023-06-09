@@ -5,6 +5,9 @@ export default createTheme({
         primary: {
             main: "#2c2c2c"
         },
+        secondary: {
+            main: "#f06292"
+        },
         text: {
             primary: "#fff"
         },
@@ -18,6 +21,10 @@ export default createTheme({
         h3: {
             fontSize: "1.5rem",
             fontWeight: 400
+        },
+        h4: {
+            fontSize: "1.2rem",
+            fontWeight: 700
         },
         button: {
             borderRadius: "30px",
