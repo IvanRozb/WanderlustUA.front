@@ -29,9 +29,11 @@ export default function SignInForm(){
             setError(res.error);
             return;
         }
+
         setCookie('token', res.token, {
             path: "/",
-            sameSite: "none"
+            sameSite: "none",
+            secure: true
         })
     };
 
