@@ -4,7 +4,10 @@ export default createTheme({
     palette: {
         primary: {
             main: "#2c2c2c"
-        }
+        },
+        text: {
+            primary: "#fff"
+        },
     },
     typography: {
         fontFamily: "Roboto, sans-serif",
@@ -15,6 +18,13 @@ export default createTheme({
         h3: {
             fontSize: "1.5rem",
             fontWeight: 400
+        },
+        button: {
+            borderRadius: "30px",
+            "&:hover": {
+                color: "#f06292 !important"
+            }
         }
-    }
+    },
+
 })
