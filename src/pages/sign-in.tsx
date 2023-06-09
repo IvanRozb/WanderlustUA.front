@@ -7,7 +7,7 @@ import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
-import React from "react";
+import React, {useState} from "react";
 import {styled} from "@mui/styles";
 import theme from "@/helpers/theme";
 
@@ -33,14 +33,33 @@ const CssTextField = styled(TextField)({
 });
 
 export default function SignIn() {
-    const handleSubmit = (event:React.FormEvent<HTMLFormElement>) => {
+    const handleSubmit = async (event:React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
-        const data = new FormData(event.currentTarget);
-        console.log({
-            email: data.get("email"),
-            password: data.get("password"),
-        });
+        const dataForm = new FormData(event.currentTarget);
+        const data = {
+            email: dataForm.get("email"),
+            password: dataForm.get("password"),
+        };
+
+        const res = await fetch("http://localhost:5199/api/auth/login", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(data)
+        })
+
+        console.log(res, res.status === 404)
+
+        if(res.status === 404){
+            setError("There is no user with this email");
+        }
+        else if(res.status === 401){
+            setError("Email or password is incorrect!");
+        }
     };
+
+    const [error, setError] = useState<string>();
 
     return (
         <Container component="main" maxWidth="xs">
@@ -58,6 +77,7 @@ export default function SignIn() {
                 <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
                     <CssTextField
                         margin="normal"
+                        error={!(error === null || error === undefined)}
                         required
                         fullWidth
                         id="email"
@@ -70,6 +90,7 @@ export default function SignIn() {
                     />
                     <CssTextField
                         margin="normal"
+                        error={!(error === null || error === undefined)}
                         required
                         fullWidth
                         name="password"
@@ -84,18 +105,19 @@ export default function SignIn() {
                         control={<Checkbox value="remember" color="primary" />}
                         label="Remember me"
                     />
+                    <Typography color={theme.palette.error.main} textAlign={"center"}>{error}</Typography>
                     <Button
                         type="submit"
                         fullWidth
                         variant="contained"
-                        sx={{ mt: 3, mb: 2 }}
+                        sx={{ mt: 2, mb: 2 }}
                     >
                         Sign In
                     </Button>
                     <Grid container justifyContent={"center"}>
                         <Grid item>
                             <Link href="#" variant="body2">
-                                {"Don't have an account? Sign Up"}
+                                <Box sx={{"&:hover":{color: theme.palette.secondary.dark}}}>"Don't have an account? Sign Up"</Box>
                             </Link>
                         </Grid>
                     </Grid>
