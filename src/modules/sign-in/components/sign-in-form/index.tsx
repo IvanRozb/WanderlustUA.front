@@ -5,7 +5,6 @@ import SignInTextField from "@/modules/sign-in/components/sign-in-form/ui/text-f
 import ErrorText from "@/modules/sign-in/components/sign-in-form/ui/error-text";
 import SignInButton from "@/modules/sign-in/components/sign-in-form/ui/sign-in-button";
 import Footer from "@/modules/sign-in/components/sign-in-form/footer";
-import {router} from "next/client";
 import {useRouter} from "next/router";
 
 export default function SignInForm(){
