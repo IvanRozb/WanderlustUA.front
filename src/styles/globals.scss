@@ -1,48 +1,8 @@
 body {
     margin: 0;
-    color: var(--faded-white-8);
 }
 
-button {
-    display: flex;
-    align-self: center;
-    text-transform: none !important;
-
-    font-weight: var(--button-font-weight) !important;
-
-    height: 2.2rem;
-    width: 100%;
-
-    border-radius: var(--border-radius) !important;
-
-&:hover {
-     background-color: var(--button-hover-background-color) !important;
-     outline: 1px solid rgba(255, 255, 255, 0.23);
- }
-}
-
-a {
-    cursor: pointer;
-    text-decoration: none;
-    text-transform: none;
-    color: var(--faded-white-8);
-    font-size: var(--h2-font-size);
-
-  &:hover {
-       color: var(--secondary-main);
-   }
-}
-
-h1 {
-    font-size: var(--h1-font-size) !important;
-    font-weight: var(--h1-font-weight) !important;
-}
-
-h3 {
-    font-size: var(--h3-font-size) !important;
-    font-weight: var(--h3-font-weight) !important;
-}
-
-span {
-    font-size: var(--span-font-size) !important;
+a{
+    color: inherit;
+    text-decoration: none !important;
 }
