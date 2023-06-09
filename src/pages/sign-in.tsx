@@ -105,10 +105,6 @@ export default function SignIn() {
                         color={"primary"}
                         sx={{ input: { color: theme.palette.primary.main } }}
                     />
-                    <FormControlLabel
-                        control={<Checkbox value="remember" color="primary" />}
-                        label="Remember me"
-                    />
                     <Typography color={theme.palette.error.main} textAlign={"center"}>{error}</Typography>
                     <Button
                         type="submit"
