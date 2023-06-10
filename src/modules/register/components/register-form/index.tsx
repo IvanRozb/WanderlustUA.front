@@ -2,10 +2,10 @@ import useTokenCookies from "@/hooks/useTokenCookies";
 import {useRouter} from "next/router";
 import {FormEvent, useState} from "react";
 import Box from "@mui/material/Box";
-import SignInTextField from "src/ui/text-field";
+import TextFieldUI from "src/ui/text-field";
 import ErrorText from "src/ui/error-text";
-import SignInButton from "src/ui/submit-button";
-import Footer from "src/modules/sign-in/components/sign-in-form/components/footer";
+import RegisterButton from "src/ui/submit-button";
+import Footer from "src/ui/submit-footer";
 
 export default function RegisterForm(){
     const [cookies, setCookie, removeCookie] = useTokenCookies();
@@ -15,11 +15,15 @@ export default function RegisterForm(){
 
         const dataForm = new FormData(event.currentTarget);
         const data = {
+            username: dataForm.get("username"),
+            firstName: dataForm.get("firstName"),
+            lastName: dataForm.get("lastName"),
             email: dataForm.get("email"),
             password: dataForm.get("password"),
+            passwordConfirm: dataForm.get("password-confirm")
         };
 
-        const res = await fetch("http://localhost:5199/api/auth/login", {
+        const res = await fetch("http://localhost:5199/api/auth/register", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -34,19 +38,37 @@ export default function RegisterForm(){
 
         setError(undefined);
 
-        setCookie('token', res.token, {
-            path: "/",
-            sameSite: "none",
-            secure: true
-        })
-
-        await router.push("/");
+        await router.push("/sign-in");
     };
 
     const [error, setError] = useState<string>();
 
     return <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
-        <SignInTextField
+        <TextFieldUI
+            id="username"
+            label="Username"
+            name="username"
+            autoComplete="username"
+            autoFocus
+            error={error}
+        />
+        <TextFieldUI
+            id="firstName"
+            label="First Name"
+            name="firstName"
+            autoComplete="firstName"
+            autoFocus
+            error={error}
+        />
+        <TextFieldUI
+            id="lastName"
+            label="Last Name"
+            name="lastName"
+            autoComplete="lastName"
+            autoFocus
+            error={error}
+        />
+        <TextFieldUI
             id="email"
             label="Email Address"
             name="email"
@@ -54,7 +76,7 @@ export default function RegisterForm(){
             autoFocus
             error={error}
         />
-        <SignInTextField
+        <TextFieldUI
             id="password"
             label="Password"
             name="password"
@@ -62,8 +84,16 @@ export default function RegisterForm(){
             error={error}
             type={"password"}
         />
+        <TextFieldUI
+            id="password-confirm"
+            label="Confirm Your Password"
+            name="password-confirm"
+            autoComplete="password-confirm"
+            error={error}
+            type={"password"}
+        />
         <ErrorText error={error}/>
-        <SignInButton text={"Register"}/>
-        <Footer />
+        <RegisterButton text={"Register"}/>
+        <Footer text={"\"Already has an account? Sign In\""} to={"/sign-in"}/>
     </Box>
 }

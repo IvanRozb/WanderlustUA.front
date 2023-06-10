@@ -1,6 +1,7 @@
 import Box from "@mui/material/Box";
 import Title from "@/ui/submit-title";
 import Container from "@mui/material/Container";
+import RegisterForm from "@/modules/register/components/register-form";
 
 export default function Register(){
     return <Container component="main" maxWidth="xs">
@@ -13,7 +14,7 @@ export default function Register(){
             }}
         >
             <Title text={"Register"}/>
-            <SignInForm/>
+            <RegisterForm/>
         </Box>
     </Container>
 }

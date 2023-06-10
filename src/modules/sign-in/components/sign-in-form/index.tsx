@@ -4,7 +4,7 @@ import useTokenCookies from "@/hooks/useTokenCookies";
 import SignInTextField from "src/ui/text-field";
 import ErrorText from "src/ui/error-text";
 import SignInButton from "src/ui/submit-button";
-import Footer from "src/modules/sign-in/components/sign-in-form/components/footer";
+import Footer from "src/ui/submit-footer";
 import {useRouter} from "next/router";
 
 export default function SignInForm(){
@@ -64,6 +64,6 @@ export default function SignInForm(){
         />
         <ErrorText error={error}/>
         <SignInButton text={"Sign In"}/>
-        <Footer />
+        <Footer text={"\"Don't have an account? Sign Up\""} to={"/register"}/>
     </Box>
 }
