@@ -10,6 +10,7 @@ export default function useProtection(){
     useEffect(() => {
         if(token){
             router.replace("/");
+            return;
         }
         setLoading(false);
     }, [router])
