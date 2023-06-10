@@ -3,12 +3,19 @@ import type { AppProps } from 'next/app'
 import {ThemeProvider} from "@mui/material";
 import theme from "@/helpers/theme";
 import Header from "@/modules/header";
+import {CookiesProvider} from "react-cookie";
+import Head from "next/head";
 
 export default function App({ Component, pageProps }: AppProps) {
   return <>
+      <Head>
+          <title>WanderlustUA</title>
+      </Head>
       <ThemeProvider theme={theme}>
-          <Header />
-          <Component {...pageProps} />
+          <CookiesProvider>
+              <Header />
+              <Component {...pageProps} />
+          </CookiesProvider>
       </ThemeProvider>
     </>
 }
