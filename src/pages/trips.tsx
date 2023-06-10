@@ -1,4 +1,5 @@
 import useProtection from "@/hooks/useProtection";
+import Header from "@/modules/header";
 
 export default function TripsPage() {
     const res = useProtection();
@@ -6,6 +7,6 @@ export default function TripsPage() {
         return res;
 
     return (
-       <></>
+        <Header />
     )
 }
