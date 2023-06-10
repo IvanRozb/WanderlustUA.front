@@ -7,12 +7,14 @@ import useToken from "@/hooks/useToken";
 import RegisterButton from "@/modules/header/components/register-button";
 import Link from "next/link";
 import Person from "@mui/icons-material/Person";
+import Typography from "@mui/material/Typography";
 
 export default function Header() {
     const token = useToken();
 
     return (
         <AppBar position={"static"}>
+            {token?.role === "Admin" && <Typography position={"absolute"}>Admin</Typography>}
             <Container maxWidth={"xl"}>
                 <Toolbar disableGutters>
                     <Logo />
