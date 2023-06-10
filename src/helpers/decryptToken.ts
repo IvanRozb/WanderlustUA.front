@@ -1,4 +1,5 @@
-export default function decryptToken(token:string)  {
+import jwt from 'jwt-decode' // import dependency
+export default function decryptToken(token:string) : any{
     try {
         return parseJwt(token);
     } catch (error) {
@@ -7,8 +8,7 @@ export default function decryptToken(token:string)  {
 };
 
 function parseJwt(token:string) {
-    if (!token) { return; }
-    const base64Url = token.split('.')[1];
-    const base64 = base64Url.replace('-', '+').replace('_', '/');
-    return JSON.parse(window.atob(base64));
+    if (!token)
+        return;
+    return jwt(token);
 }
