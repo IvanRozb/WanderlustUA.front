@@ -1,8 +1,8 @@
-import useProtection from "@/hooks/useProtection";
 import Header from "@/modules/header";
+import useNonExistProtection from "@/hooks/useNonExistProtection";
 
 export default function TripsPage() {
-    const res = useProtection();
+    const res = useNonExistProtection();
     if(res)
         return res;
 
