@@ -63,7 +63,7 @@ export default function RegisterForm(){
             type={"password"}
         />
         <ErrorText error={error}/>
-        <SignInButton />
+        <SignInButton text={"Register"}/>
         <Footer />
     </Box>
 }

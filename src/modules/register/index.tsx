@@ -12,7 +12,7 @@ export default function Register(){
                 alignItems: "center",
             }}
         >
-            <Title />
+            <Title text={"Register"}/>
             <SignInForm/>
         </Box>
     </Container>

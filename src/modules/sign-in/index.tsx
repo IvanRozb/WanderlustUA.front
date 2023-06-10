@@ -14,7 +14,7 @@ export default function SignIn() {
                     alignItems: "center",
                 }}
             >
-                <Title />
+                <Title text={"Sign In"}/>
                 <SignInForm/>
             </Box>
         </Container>

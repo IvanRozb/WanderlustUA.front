@@ -63,7 +63,7 @@ export default function SignInForm(){
             type={"password"}
         />
         <ErrorText error={error}/>
-        <SignInButton />
+        <SignInButton text={"Sign In"}/>
         <Footer />
     </Box>
 }
