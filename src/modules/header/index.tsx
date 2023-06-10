@@ -15,7 +15,7 @@ export default function Header() {
                 <Toolbar disableGutters>
                     <Logo />
                     <NavTabs/>
-                    <RegisterButton/>
+                    {!token && <RegisterButton/>}
                     {!token ? <SignIn/> : <SignOut/>}
                 </Toolbar>
             </Container>
