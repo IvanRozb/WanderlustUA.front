@@ -71,8 +71,6 @@ const TouristPlacesList = ({touristPlaces}) => {
         setPlaces(filtered);
     };
 
-    console.log(places)
-
     return (<>
             <Container component="main" maxWidth="lg">
                 <Box className={classes.searchContainer}>
@@ -101,7 +99,7 @@ const TouristPlacesList = ({touristPlaces}) => {
                             <ListItem key={place.id} className={classes.listItem}>
                                 <Box sx={{display: "flex"}}>
                                     <Box className={classes.itemImage}>
-                                        <Image src={"https://source.unsplash.com/400x300/?mountains"} alt={""} width={100} height={100}/>
+                                        <Image src={"https://source.unsplash.com/100x100/?mountains"} alt={""} width={100} height={100}/>
                                     </Box>
                                     <Box>
                                         <Typography variant={"h4"}>{place.name}</Typography>
