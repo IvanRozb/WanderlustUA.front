@@ -4,7 +4,7 @@ import NavTabs from "@/modules/header/components/navTabs";
 import SignIn from "src/modules/header/components/sign-in";
 import SignOut from "@/modules/header/components/sign-out";
 import useToken from "@/hooks/useToken";
-import RegisterButton from "@/modules/header/components/register-button";
+import RegisterButton from "src/ui/register-button";
 import Link from "next/link";
 import Person from "@mui/icons-material/Person";
 import Typography from "@mui/material/Typography";
