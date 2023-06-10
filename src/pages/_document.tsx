@@ -10,6 +10,7 @@ export default class MyDocument extends Document {
                 <Head>
                     {/* Not exactly required, but this is the PWA primary color */}
                     <meta name="theme-color" content={theme.palette.primary.main} />
+                    <title>WanderlustUA</title>
                 </Head>
                 <body>
                 <Main />
