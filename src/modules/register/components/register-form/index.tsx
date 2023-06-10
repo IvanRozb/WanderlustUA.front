@@ -1,13 +1,13 @@
-import Box from "@mui/material/Box";
-import {FormEvent, useState} from "react";
 import useTokenCookies from "@/hooks/useTokenCookies";
+import {useRouter} from "next/router";
+import {FormEvent, useState} from "react";
+import Box from "@mui/material/Box";
 import SignInTextField from "src/ui/text-field";
 import ErrorText from "src/ui/error-text";
 import SignInButton from "src/ui/submit-button";
 import Footer from "src/modules/sign-in/components/sign-in-form/components/footer";
-import {useRouter} from "next/router";
 
-export default function SignInForm(){
+export default function RegisterForm(){
     const [cookies, setCookie, removeCookie] = useTokenCookies();
     const router = useRouter();
     const handleSubmit = async (event:FormEvent<HTMLFormElement>) => {

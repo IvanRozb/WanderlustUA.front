@@ -1,7 +1,8 @@
 import Typography from "@mui/material/Typography";
 
-export default function Index(){
+// @ts-ignore
+export default function SubmitTitle({text}){
     return <Typography component="h1" variant="h5">
-        Sign in
+        {text}
     </Typography>
 }

@@ -1,6 +1,6 @@
 import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
-import Title from "@/modules/sign-in/ui/title";
+import Title from "src/ui/submit-title";
 import SignInForm from "@/modules/sign-in/components/sign-in-form";
 
 export default function SignIn() {

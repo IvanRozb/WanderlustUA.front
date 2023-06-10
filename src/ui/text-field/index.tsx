@@ -22,7 +22,7 @@ const CssTextField = styled(TextField)({
     },
 });
 
-export default function SignInTextField(props:any){
+export default function TextFieldUI(props:any){
     const {id, label, name, autoComplete, autoFocus, error, type} = props;
 
     return <CssTextField
