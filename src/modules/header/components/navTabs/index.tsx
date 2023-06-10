@@ -31,7 +31,7 @@ export default function NavTabs() {
     const handleChange = (event: SyntheticEvent, newValue: number) => {
         setValue(newValue);
     };
-    return <Tabs variant={"fullWidth"} value={value} onChange={handleChange} className={classes.tabs}>
+    return <Tabs variant={"fullWidth"} value={(!token) ? 0 : value} onChange={handleChange} className={classes.tabs}>
         <Tab label={<Link href={"/"}><div className={classes.tabLink}>Home</div></Link>} value={0} className={classes.tab}/>
         <Tab label={<Link href={"/tourist-places"}><div className={classes.tabLink}>Tourist Places</div></Link>} value={1} className={classes.tab}/>
         {token && <Tab label={<Link href={"/trips"}><div className={classes.tabLink}>Trips</div></Link>} value={2} className={classes.tab}/>}

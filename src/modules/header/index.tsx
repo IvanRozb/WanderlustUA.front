@@ -4,6 +4,7 @@ import NavTabs from "@/modules/header/components/navTabs";
 import SignIn from "src/modules/header/components/sign-in";
 import SignOut from "@/modules/header/components/sign-out";
 import useToken from "@/hooks/useToken";
+import RegisterButton from "@/modules/header/components/register-button";
 
 export default function Header() {
     const token = useToken();
@@ -14,6 +15,7 @@ export default function Header() {
                 <Toolbar disableGutters>
                     <Logo />
                     <NavTabs/>
+                    <RegisterButton/>
                     {!token ? <SignIn/> : <SignOut/>}
                 </Toolbar>
             </Container>
