@@ -19,8 +19,6 @@ export default function TouristPlacePage(){
             .then(data => setPlace(data))
     },[]);
 
-    console.log(place)
-
     if(!place){
         return <>
             <Header/>
