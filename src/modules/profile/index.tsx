@@ -1,7 +1,7 @@
 import Box from "@mui/material/Box";
 import Title from "@/ui/submit-title";
-import SignInForm from "@/modules/sign-in/components/sign-in-form";
 import Container from "@mui/material/Container";
+import ProfileForm from "@/modules/profile/components/profile-form";
 
 // @ts-ignore
 export default function Profile({user}) {
@@ -15,7 +15,7 @@ export default function Profile({user}) {
             }}
         >
             <Title text={"Hello, " + user.username}/>
-            <SignInForm/>
+            <ProfileForm user={user}/>
         </Box>
     </Container>
 }
