@@ -1,9 +1,14 @@
 import Register from "@/modules/register";
 import useProtection from "@/hooks/useProtection";
+import Header from "@/modules/header";
 
-export default function RegisterPage(){
+export default function RegisterPage() {
     const res = useProtection();
-    if(res)
+    if (res)
         return res;
-    return <Register />
+
+    return <>
+        <Header/>
+        <Register/>
+    </>
 }
