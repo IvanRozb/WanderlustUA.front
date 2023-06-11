@@ -15,7 +15,6 @@ export default function JointItem({joint, index, setJoints}) {
         fetch('http://localhost:5199/api/tourist-place/' + joint.touristPlaceId)
             .then(res => res.json())
             .then(data => setName(data.name));
-        console.log(1)
     }, [joint])
 
     // @ts-ignore

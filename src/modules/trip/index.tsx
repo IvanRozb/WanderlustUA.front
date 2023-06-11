@@ -69,20 +69,6 @@ export default function Trips({trips}) {
         setTrips(trips);
     }
 
-    // @ts-ignore
-    const getCurrentPercentageOfTrip = (trip) => {
-        const startDate = new Date(trip.startDate);
-        const endDate = new Date(trip.endDate);
-        const now = new Date();
-
-        const totalTime = endDate.getTime() - startDate.getTime();
-        const elapsedTime = now.getTime() - startDate.getTime();
-
-        return (elapsedTime / totalTime) * 1000;
-    }
-
-
-
     return !trips || trips.length === 0 ?
         <Box height={"75vh"} display={"flex"} flexDirection={"row"}
              alignItems={"center"} justifyContent={"center"} alignSelf={"center"}
@@ -103,15 +89,6 @@ export default function Trips({trips}) {
                         <Typography variant={"inherit"}
                                     className={classes.itemDescription}>{trip.description}</Typography>
                         <Typography variant={"h3"} mt={2} mb={2}>TIME FRAME</Typography>
-                        <Box display={"flex"} justifyContent={"space-between"} flexDirection={"row"}>
-                            <Typography>{trip.startDate.toString().split("T")[0]}</Typography>
-                            <Slider disabled defaultValue={getCurrentPercentageOfTrip(trip)}
-                                    aria-label="Disabled slider" min={0} max={1000}
-                                    sx={{width: 200, margin: "0 1.4rem 0 1.4rem"}}/>
-                            <Typography>{trip.endDate.toString().split("T")[0]}</Typography>
-                        </Box>
-                        {new Date() >= new Date(trip.endDate) &&
-                            <Typography sx={{color: "green"}}>Completed!</Typography>}
                         <Footer trip={trip} handleDeleteTrip={handleDeleteTrip}/>
                     </ListItem>
                 )}
