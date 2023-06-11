@@ -46,6 +46,7 @@ export default function SignInForm(){
     const [error, setError] = useState<string>();
 
     return <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
+        {/*// @ts-ignore*/}
         <SignInTextField
             id="email"
             label="Email Address"
@@ -54,6 +55,7 @@ export default function SignInForm(){
             autoFocus
             error={error}
         />
+        {/*// @ts-ignore*/}
         <SignInTextField
             id="password"
             label="Password"

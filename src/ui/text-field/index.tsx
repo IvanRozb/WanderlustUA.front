@@ -22,8 +22,12 @@ const CssTextField = styled(TextField)({
     },
 });
 
-export default function TextFieldUI(props:any){
-    const {id, label, name, autoComplete, autoFocus, error, type, defaultValue} = props;
+// @ts-ignore
+export default function TextFieldUI({id, label, name,
+// @ts-ignore
+                                        autoComplete, autoFocus, error,
+// @ts-ignore
+                                        type, defaultValue}) {
 
     return <CssTextField
         margin="normal"
@@ -38,6 +42,6 @@ export default function TextFieldUI(props:any){
         autoComplete={autoComplete}
         autoFocus={autoFocus}
         color={"primary"}
-        sx={{ input: { color: theme.palette.primary.main } }}
+        sx={{input: {color: theme.palette.primary.main}}}
     />
 }

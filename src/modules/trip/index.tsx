@@ -9,6 +9,8 @@ import {makeStyles} from "@mui/styles";
 import {Slider} from "@mui/material";
 import DeleteOutlineOutlinedIcon from '@mui/icons-material/DeleteOutlineOutlined';
 import useTokenCookies from "@/hooks/useTokenCookies";
+import Joint from "@/modules/trip/joint";
+import Footer from "@/modules/trip/footer";
 import {useState} from "react";
 
 const useStyles = makeStyles({
@@ -34,7 +36,7 @@ const useStyles = makeStyles({
 // @ts-ignore
 export default function Trips({trips}) {
     const [tripsCopy, setTrips] = useState(trips);
-    const [{token}, setCookie, removeCookie] = useTokenCookies();
+    const [{token}] = useTokenCookies();
     const classes = useStyles();
     const router = useRouter();
     const handleCreateClick = async () => {
@@ -60,7 +62,7 @@ export default function Trips({trips}) {
                 },
             }).then(res => res.json());
 
-        if(trips.error){
+        if (trips.error) {
             throw new Error(trips.error)
         }
 
@@ -78,6 +80,8 @@ export default function Trips({trips}) {
 
         return (elapsedTime / totalTime) * 1000;
     }
+
+
 
     return !trips || trips.length === 0 ?
         <Box height={"75vh"} display={"flex"} flexDirection={"row"}
@@ -108,7 +112,7 @@ export default function Trips({trips}) {
                         </Box>
                         {new Date() >= new Date(trip.endDate) &&
                             <Typography sx={{color: "green"}}>Completed!</Typography>}
-                        <Button onClick={() => handleDeleteTrip(trip)}><DeleteOutlineOutlinedIcon/></Button>
+                        <Footer trip={trip} handleDeleteTrip={handleDeleteTrip}/>
                     </ListItem>
                 )}
             </List>

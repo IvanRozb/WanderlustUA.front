@@ -44,6 +44,7 @@ export default function RegisterForm(){
     const [error, setError] = useState<string>();
 
     return <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
+        {/*// @ts-ignore*/}
         <TextFieldUI
             id="username"
             label="Username"
@@ -52,6 +53,7 @@ export default function RegisterForm(){
             autoFocus
             error={error}
         />
+        {/*// @ts-ignore*/}
         <TextFieldUI
             id="firstName"
             label="First Name"
@@ -60,6 +62,7 @@ export default function RegisterForm(){
             autoFocus
             error={error}
         />
+        {/*// @ts-ignore*/}
         <TextFieldUI
             id="lastName"
             label="Last Name"
@@ -68,6 +71,7 @@ export default function RegisterForm(){
             autoFocus
             error={error}
         />
+        {/*// @ts-ignore*/}
         <TextFieldUI
             id="email"
             label="Email Address"
@@ -76,6 +80,7 @@ export default function RegisterForm(){
             autoFocus
             error={error}
         />
+        {/*// @ts-ignore*/}
         <TextFieldUI
             id="password"
             label="Password"
@@ -84,6 +89,7 @@ export default function RegisterForm(){
             error={error}
             type={"password"}
         />
+        {/*// @ts-ignore*/}
         <TextFieldUI
             id="password-confirm"
             label="Confirm Your Password"

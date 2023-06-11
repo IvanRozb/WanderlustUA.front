@@ -28,10 +28,14 @@ export default function AdminModule(){
     const classes = useStyles();
     const [{token}] = useTokenCookies()
 
+    // @ts-ignore
     const httpClient = (url, options = {}) => {
+        // @ts-ignore
         if (!options.headers) {
+            // @ts-ignore
             options.headers = new Headers({ Accept: 'application/json' });
         }
+        // @ts-ignore
         options.headers.set('Authorization', `Bearer ${token}`);
         return fetchUtils.fetchJson(url, options);
     };
