@@ -1,7 +1,7 @@
 import Header from "@/modules/header";
 import useNonExistProtection from "@/hooks/useNonExistProtection";
 import {Container} from "@mui/material";
-import Trips from "@/modules/trip/trip";
+import Trips from "@/modules/trip";
 
 // @ts-ignore
 export default function TripsPage({trips}) {
