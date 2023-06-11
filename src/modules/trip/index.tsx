@@ -6,10 +6,7 @@ import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
 import {useRouter} from "next/router";
 import {makeStyles} from "@mui/styles";
-import {Slider} from "@mui/material";
-import DeleteOutlineOutlinedIcon from '@mui/icons-material/DeleteOutlineOutlined';
 import useTokenCookies from "@/hooks/useTokenCookies";
-import Joint from "@/modules/trip/joint";
 import Footer from "@/modules/trip/footer";
 import {useState} from "react";
 
